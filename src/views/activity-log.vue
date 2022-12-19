@@ -1,6 +1,6 @@
 <template>
   <div class="activity-log-view">
-    <app-header></app-header>
+    <app-header :title="title"></app-header>
     <div class="card log-item" v-for="item in log" :key="item.key">
       <div class="card-header d-flex justify-content-between">
         <span class="title">{{ item.title }}</span>
@@ -50,7 +50,10 @@ export default {
       const minuteOrMinutes = min === 1 ? 'minute' : 'minutes';
       return `${min} ${minuteOrMinutes} ago`;
     };
-    return { log, fixText, getTime };
+    const title = computed(
+      () => storeAccess.store.getters[getterTypes.rootApp.title]
+    );
+    return { log, fixText, getTime, title };
   },
 };
 </script>

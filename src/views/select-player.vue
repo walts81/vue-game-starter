@@ -1,6 +1,11 @@
 <template>
   <div class="select-player-view">
-    <app-header ref="header" override-back @back="onBack()"></app-header>
+    <app-header
+      ref="header"
+      :title="title"
+      override-back
+      @back="onBack()"
+    ></app-header>
     <select-or-create
       v-if="!showCreate && !showSelect"
       @create="showCreate = true"
@@ -92,6 +97,9 @@ export default {
     const currentPlayers = computed(
       () => storeAccess.store.getters[getterTypes.rootGame.playablePlayers]
     );
+    const title = computed(
+      () => storeAccess.store.getters[getterTypes.rootApp.title]
+    );
     const onDeleteGame = () => {
       modal.value.open();
     };
@@ -125,6 +133,7 @@ export default {
       onDeleteGame,
       modal,
       onConfirmDelete,
+      title,
     };
   },
 };

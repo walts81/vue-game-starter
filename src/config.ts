@@ -2,6 +2,7 @@ import { Player } from './store/models';
 
 export interface GameStarterConfig {
   name: string;
+  title: string;
   homeRoute: string;
   router: any;
   store: any;
@@ -22,6 +23,7 @@ interface ConfigAccess {
 export const configAccess: ConfigAccess = {
   config: {
     name: '',
+    title: '',
     homeRoute: '',
     router: null,
     store: null,

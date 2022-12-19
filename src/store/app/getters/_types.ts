@@ -5,4 +5,5 @@ export const getterTypes = {
   toastMessages: `${prefix}toast_messages`,
   options: `${prefix}options`,
   activityLog: `${prefix}activity_log`,
+  title: `${prefix}title`,
 };

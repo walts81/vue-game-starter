@@ -1,6 +1,7 @@
 import { setFirebasePrefix } from './store/game/prefix';
 import { storeAccess } from './store/store-access';
 import { modules } from './store/modules';
+import { mutationTypes } from './store/mutation-types';
 import { initRoutes } from './router/routes';
 import { routerAccess } from './router/router-access';
 import { init } from '@walts81/firebase-helpers';
@@ -11,6 +12,10 @@ export const GameStarter = {
     configAccess.config.storeModules = modules;
     await config(configAccess.config);
     storeAccess.store = configAccess.config.store;
+    storeAccess.store.commit(
+      mutationTypes.rootApp.setTitle,
+      configAccess.config.title
+    );
     routerAccess.router = configAccess.config.router;
     routerAccess.homeRoute = configAccess.config.homeRoute;
     initRoutes(routerAccess.router);

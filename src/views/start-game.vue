@@ -1,6 +1,6 @@
 <template>
   <div class="start-game">
-    <app-header hide-back></app-header>
+    <app-header :title="title" hide-back></app-header>
     <text-input
       type="text"
       v-model="gameKey"
@@ -62,8 +62,11 @@ export default {
       });
       routerAccess.router.push('/select-player');
     };
+    const title = computed(
+      () => storeAccess.store.getters[getterTypes.rootApp.title]
+    );
     onMounted(() => storeAccess.store.dispatch(actionTypes.rootGame.clearGame));
-    return { joinGame, selectGame, games, gameKey };
+    return { joinGame, selectGame, games, gameKey, title };
   },
 };
 </script>

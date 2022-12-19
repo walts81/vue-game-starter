@@ -1,6 +1,7 @@
 import { getDefaultOptions, Options, ToastMessage } from './models';
 
 export interface AppState {
+  title: string;
   isBusy: boolean;
   toasts: ToastMessage[];
   options: Options;
@@ -8,6 +9,7 @@ export interface AppState {
 }
 
 export const getDefaultAppState = (): AppState => ({
+  title: '',
   isBusy: false,
   toasts: [],
   options: getDefaultOptions(),

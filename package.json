@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@walts81/firebase-helpers": "^1.0.10",
-    "@walts81/vue-common-components": "^1.0.2",
+    "@walts81/vue-common-components": "^1.0.3",
     "bootstrap": "^5.2.3",
     "moment": "^2.29.4",
     "vue": "^3.2.41"

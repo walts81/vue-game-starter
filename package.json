@@ -1,6 +1,6 @@
 {
   "name": "@walts81/vue-game-starter",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "description": "Vue3 library for TypeScript with common game components using Bootstrap",
   "homepage": "https://github.com/walts81/vue-game-starter",

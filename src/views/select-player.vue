@@ -1,11 +1,6 @@
 <template>
   <div class="select-player-view">
-    <app-header
-      ref="header"
-      :title="title"
-      override-back
-      @back="onBack()"
-    ></app-header>
+    <app-header :title="title" override-back @back="onBack()"></app-header>
     <select-or-create
       v-if="!showCreate && !showSelect"
       @create="showCreate = true"
@@ -74,8 +69,6 @@ export default {
     const modal = ref<any>(null);
     const showCreate = ref(false);
     const showSelect = ref(false);
-    const header = ref<any>(null);
-    let manualBack = false;
     const createPlayer = async (item: { name: string }) => {
       let player = getDefaultPlayer(item.name);
       if (!!configAccess.config.initPlayer) {
@@ -110,22 +103,17 @@ export default {
       );
     };
     const onBack = async () => {
-      if (manualBack) return;
       if (showCreate.value || showSelect.value) {
         showCreate.value = false;
         showSelect.value = false;
       } else {
-        manualBack = true;
         await storeAccess.store.dispatch(actionTypes.rootGame.clearGame);
-        header.value.backButton.goBack(true);
-        await nextTick();
-        manualBack = false;
+        routerAccess.router.back();
       }
     };
     return {
       createPlayer,
       selectPlayer,
-      header,
       currentPlayers,
       showCreate,
       showSelect,

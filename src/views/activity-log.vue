@@ -1,6 +1,6 @@
 <template>
   <div class="activity-log-view">
-    <app-header :title="title"></app-header>
+    <app-header :title="title" @back="goBack()"></app-header>
     <div class="card log-item" v-for="item in log" :key="item.key">
       <div class="card-header d-flex justify-content-between">
         <span class="title">{{ item.title }}</span>
@@ -20,6 +20,7 @@ import { computed } from 'vue';
 import moment from 'moment';
 import { getterTypes } from '../store/getter-types';
 import { storeAccess } from '../store/store-access';
+import { routerAccess } from '../router/router-access';
 import { Header as AppHeader } from '@walts81/vue-common-components';
 
 export default {
@@ -53,7 +54,8 @@ export default {
     const title = computed(
       () => storeAccess.store.getters[getterTypes.rootApp.title]
     );
-    return { log, fixText, getTime, title };
+    const goBack = () => routerAccess.router.back();
+    return { log, fixText, getTime, title, goBack };
   },
 };
 </script>

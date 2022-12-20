@@ -21,7 +21,7 @@ import moment from 'moment';
 import { getterTypes } from '../store/getter-types';
 import { storeAccess } from '../store/store-access';
 import { routerAccess } from '../router/router-access';
-import { Header as AppHeader } from '@walts81/vue-common-components';
+import { AppHeader } from '@walts81/vue-common-components';
 
 export default {
   components: { AppHeader },

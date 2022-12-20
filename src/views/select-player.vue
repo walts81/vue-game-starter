@@ -49,7 +49,7 @@ import {
 import { storeAccess } from '../store/store-access';
 import { routerAccess } from '../router/router-access';
 import {
-  Header as AppHeader,
+  AppHeader,
   Modal as ConfirmModal,
 } from '@walts81/vue-common-components';
 import SelectOrCreate from '../components/select-or-create-player.vue';

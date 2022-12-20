@@ -31,7 +31,7 @@ import { computed, ref, onMounted } from 'vue';
 import { actionTypes, getterTypes, notifyUser } from '../store';
 import { storeAccess } from '../store/store-access';
 import { routerAccess } from '../router/router-access';
-import { Header as AppHeader, TextInput } from '@walts81/vue-common-components';
+import { AppHeader, TextInput } from '@walts81/vue-common-components';
 
 export default {
   components: { AppHeader, TextInput },
